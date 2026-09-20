@@ -1,4 +1,14 @@
+import type { App } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import './custom.css'
+import WordCount from './WordCount.vue'
+import Layout from './Layout.vue'
 
-export default DefaultTheme
+export default {
+  extends: DefaultTheme,
+  ...DefaultTheme,
+  Layout,
+
+  enhanceApp({ app }: { app: App }) {
+    app.component('WordCount', WordCount)
+  }
+}
