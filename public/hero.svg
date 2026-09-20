@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5a4"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="bub" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e0f2f3"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="320" height="240" rx="48" fill="url(#bg)" opacity="0.9"/>
+  <rect x="72" y="84" width="150" height="18" rx="9" fill="#ffffff" opacity="0.32"/>
+  <rect x="72" y="122" width="190" height="18" rx="9" fill="#ffffff" opacity="0.32"/>
+  <!-- 气泡 -->
+  <g>
+    <rect x="72" y="166" width="0" height="0" />
+    <path d="M120 150 h150 a 20 20 0 0 1 20 20 v 58 a 20 20 0 0 1 -20 20 h-96 l-34 30 v-30 h-20 a 20 20 0 0 1 -20 -20 v-58 a 20 20 0 0 1 20 -20 z" fill="url(#bub)"/>
+    <circle cx="160" cy="194" r="7" fill="#0d9488"/>
+    <circle cx="196" cy="194" r="7" fill="#0d9488"/>
+    <rect x="120" y="214" width="120" height="12" rx="6" fill="#0d9488" opacity="0.28"/>
+    <rect x="140" y="234" width="90" height="10" rx="5" fill="#0d9488" opacity="0.18"/>
+  </g>
+  <circle cx="292" cy="120" r="22" fill="#ffffff" opacity="0.9"/>
+  <path d="M292 108 v8 l7 4" stroke="#0d9488" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="322" cy="250" r="14" fill="#ffffff" opacity="0.55"/>
+</svg>

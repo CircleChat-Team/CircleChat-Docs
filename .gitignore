@@ -1,0 +1,15 @@
+# 依赖
+node_modules/
+%AppData%/
+_book/
+
+# 构建产物
+.vitepress/dist/
+.vitepress/cache/
+
+# 本地调试
+*~
+.DS_Store
+
+# 日志
+*.log
