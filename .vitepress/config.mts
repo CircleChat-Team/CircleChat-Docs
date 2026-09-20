@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+const currentYear = new Date().getFullYear()
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -7,7 +8,15 @@ export default defineConfig({
   description: '自托管的轻量多人聊天服务器 —— 使用与开发文档',
   lastUpdated: true,
   cleanUrls: false,
-
+  markdown: {
+    container: {
+      tipLabel: '提示',
+      warningLabel: '警告',
+      dangerLabel: '危险',
+      infoLabel: '信息',
+      detailsLabel: '详细信息'
+    }
+  },
   themeConfig: {
     logo: '/logo.svg',
     nav: [
@@ -54,21 +63,55 @@ export default defineConfig({
         ],
       },
     ],
-
     docFooter: { prev: '上一页', next: '下一页' },
     outline: { label: '本页目录', level: [2, 3] },
+    lastUpdatedText: '最后更新',
+    returnToTopLabel: '返回顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
+    editLink: {
+      pattern: 'https://github.com/CircleChat-Team/CircleChat-Docs/edit/main/:path',
+      text: '在 GitHub 上编辑此页'
+    },
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/CircleChat-Team/CircleChat-Docs' }
+      // 可按需添加 discord / qq / bilibili 等
+    ],
     search: {
       provider: 'local',
       options: {
-        translations: {
-          button: { buttonText: '搜索文档', buttonAriaLabel: '搜索文档' },
-          modal: { noResultsText: '未找到相关结果', resetButtonTitle: '清除查询', footer: { selectText: '选择', navigateText: '切换' } },
-        },
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                displayDetails: '显示详细列表',
+                resetButtonTitle: '清除查询',
+                backButtonTitle: '关闭搜索',
+                noResultsText: '未找到相关结果',
+                footer: {
+                  selectText: '选择',
+                  selectKeyAriaLabel: '输入',
+                  navigateText: '切换',
+                  navigateUpKeyAriaLabel: '上箭头',
+                  navigateDownKeyAriaLabel: '下箭头',
+                  closeText: '关闭',
+                  closeKeyAriaLabel: 'Esc'
+                }
+              }
+            }
+          }
+        }
       },
     },
     footer: {
       message: '基于 GPL-3.0 开源',
-      copyright: 'Copyright © CircleChat Team',
+      copyright: `Copyright © ${currentYear} CircleChat Team`,
     },
   },
 })
