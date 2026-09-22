@@ -38,8 +38,13 @@ CircleChat 是一款**自托管的轻量多人聊天服务器**。单进程部�
 - [快速开始](getting-started/quickstart.md)：最短路径跑起来。
 - [生产部署](getting-started/installation.md)：Nginx / 容器 / 更新服务器。
 - [配置说明](getting-started/configuration.md)：端口、上传保留、地址分离与内置账号。
+- [GitHub 登录与仓库卡片](getting-started/oauth.md)：OAuth 登录配置与消息内仓库卡片。
 - [用户指南](guide/usage.md)：普通用户功能手册。
 - [管理后台](guide/administration.md)：管理员功能手册。
+- [消息格式与富文本](guide/markdown.md)：Markdown / 代码高亮 / 公式 / Mermaid 速查。
+- [安全模型与加固](guide/security.md)：凭证、上传防护与部署加固建议。
+- [客户端](guide/clients.md)：网页 / 桌面客户端（CircleChatDesktop）/ 移动端的访问方式与 app-manifest。
+- [常见问题与排错](guide/faq.md)：部署与使用的常见问答。
 - [API 参考](api/overview.md)：HTTP 接口与 WebSocket 协议全量说明。
 
 ## 许可

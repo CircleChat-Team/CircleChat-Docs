@@ -32,6 +32,7 @@ export default defineConfig({
           { text: '快速开始', link: '/getting-started/quickstart' },
           { text: '生产部署', link: '/getting-started/installation' },
           { text: '配置说明', link: '/getting-started/configuration' },
+          { text: 'GitHub 登录与仓库卡片', link: '/getting-started/oauth' },
         ],
       },
       {
@@ -39,6 +40,10 @@ export default defineConfig({
         items: [
           { text: '用户指南', link: '/guide/usage' },
           { text: '管理后台', link: '/guide/administration' },
+          { text: '消息格式与富文本', link: '/guide/markdown' },
+          { text: '安全模型与加固', link: '/guide/security' },
+          { text: '客户端', link: '/guide/clients' },
+          { text: '常见问题与排错', link: '/guide/faq' },
         ],
       },
       {
