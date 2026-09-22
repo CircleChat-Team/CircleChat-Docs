@@ -13,3 +13,8 @@ _book/
 
 # 日志
 *.log
+
+# 代码编辑器
+.idea
+.vscode
+.codebuddy
