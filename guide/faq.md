@@ -1,6 +1,6 @@
 # 常见问题与排错
 
-这一页收集部署与使用 CircleChat 时最常碰到的问题。大多答案都能在 [配置说明](../getting-started/configuration) 和 [生产部署](../getting-started/installation) 找到依据，这里集中成问答形式。
+部署与使用 CircleChat 时最常碰到的问题，按主题归类。相关依据见 [配置说明](../getting-started/configuration) 与 [生产部署](../getting-started/installation)。
 
 ## 部署与构建
 
