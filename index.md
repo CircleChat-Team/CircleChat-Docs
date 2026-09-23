@@ -1,38 +1,11 @@
 ---
-layout: home
-
-hero:
-  name: CircleChat
-  text: 自托管的轻量多人聊天服务器
-  tagline: 单进程部署 · 群组与私聊 · 零第三方运行时依赖 · 支持中英日三语
-  actions:
-    - theme: brand
-      text: 快速开始
-      link: /getting-started/quickstart
-    - theme: alt
-      text: API 参考
-      link: /api/overview
-  image:
-    src: /hero.svg
-    alt: CircleChat
-
-features:
-  - icon: 💬
-    title: 群组 & 私聊
-    details: 群组多人聊天、好友私聊，在线状态与正在输入提示，表情回应、引用回复与撤回一应俱全。
-  - icon: 🚀
-    title: 零第三方运行时依赖
-    details: 服务端仅依赖 Node.js 内建能力与 node:sqlite，自研 WebSocket 协议，易于审查与自托管。
-  - icon: ⚡
-    title: 轻量与高性能
-    details: 单进程设计，页面加载目标 1 秒内；全站 HTML/CSS/JS 均由内部静态服务直接托管。
-  - icon: 🛡️
-    title: 治理体系完备
-    details: 开放注册审核、举报、禁言/封禁/IP 封禁、审计日志与站内信箱（公告 + 通知）。
-  - icon: 🎨
-    title: Markdown 富消息
-    details: 文本渲染 Markdown、代码高亮与数学公式；上传图片/音视频/文件并支持分片断点续传。
-  - icon: 🌍
-    title: 多语言界面
-    details: 内置 zh / en / ja 三种界面语言，展示地址与请求地址可分离部署。
+title: 首页
+description: 首页
+layout: false
 ---
+
+<script setup>
+import HomePage from './.vitepress/theme/components/HomePage.vue'
+</script>
+
+<HomePage />
