@@ -1,6 +1,6 @@
 # 生产部署
 
-这一页讲怎么把 CircleChat 放到生产服务器上跑：Nginx 反代 + HTTPS、用 systemd 守护进程、容器化，以及怎么平稳地更新。无论哪种方式，服务本体都是同一个 Node.js 进程（`node .output/server/index.mjs`），区别只在前面怎么接流量、进程怎么被守护。
+生产部署方式：Nginx 反代 + HTTPS、systemd 守护、容器化，以及平稳更新。无论哪种方式，服务本体都是同一个 Node.js 进程（`node .output/server/index.mjs`），区别仅在前面怎么接流量、进程怎么被守护。
 
 ## 反向代理（Nginx + HTTPS）
 
@@ -92,7 +92,7 @@ sudo journalctl -u circlechat -f      # 跟日志
 
 ## 容器化运行
 
-项目用 Nitro 的 `node-server` 预设构建，产物就是个纯 Node 进程，可以直接塞进容器。下面给一份可直接用的 `Dockerfile`：
+项目用 Nitro 的 `node-server` 预设构建，产物就是个纯 Node 进程，可以直接塞进容器。可直接用的 `Dockerfile`：
 
 ```dockerfile
 # ---- 构建阶段 ----

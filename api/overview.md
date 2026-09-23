@@ -53,7 +53,7 @@
 
 ## 鉴权流程（curl 示例）
 
-下面用 curl 演示一次完整登录到取自己的资料。关键是 cookie jar 要复用。
+用 curl 演示一次完整登录到取自己的资料，关键是复用 cookie jar。
 
 ```bash
 # 1. 登录（拿到 Set-Cookie: circlechat_token=...）
