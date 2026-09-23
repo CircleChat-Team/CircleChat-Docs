@@ -3,7 +3,7 @@
     <!-- 导航 -->
     <header class="cc-nav" :class="{ 'cc-nav-scrolled': isScrolled }">
       <div class="cc-nav-inner">
-        <a href="/" class="cc-brand">
+        <a :href="withBase('/')" class="cc-brand">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <defs>
               <linearGradient id="brandGrad" x1="0" y1="0" x2="24" y2="24">
@@ -17,10 +17,10 @@
           CircleChat
         </a>
         <nav class="cc-nav-links">
-          <a href="/getting-started/quickstart">开始使用</a>
-          <a href="/api/overview">API 参考</a>
-          <a href="/development/architecture">开发指南</a>
-          <a class="cc-nav-cta" href="/getting-started/quickstart">快速开始</a>
+          <a :href="withBase('/getting-started/quickstart')">开始使用</a>
+          <a :href="withBase('/api/overview')">API 参考</a>
+          <a :href="withBase('/development/architecture')">开发指南</a>
+          <a class="cc-nav-cta" :href="withBase('/getting-started/quickstart')">快速开始</a>
         </nav>
       </div>
     </header>
@@ -39,14 +39,14 @@
             界面支持中英2语，页面加载目标 1 秒内。
           </p>
           <div class="cc-actions">
-            <a class="cc-btn cc-btn-primary" href="/getting-started/quickstart">
+            <a class="cc-btn cc-btn-primary" :href="withBase('/getting-started/quickstart')">
               快速开始
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2"
                       stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a class="cc-btn cc-btn-ghost" href="/api/overview">API 参考</a>
+            <a class="cc-btn cc-btn-ghost" :href="withBase('/api/overview')">API 参考</a>
           </div>
         </div>
 
@@ -72,8 +72,8 @@
                 <div class="cc-bubble cc-me">收到，Markdown 也接上了 <code>node:sqlite</code></div>
               </div>
               <div class="cc-msg cc-left">
-                <div class="cc-ava cc-a2">日</div>
-                <div class="cc-bubble">画像のアップロードも動いてるよ</div>
+                <div class="cc-ava cc-a2">E</div>
+                <div class="cc-bubble">It’s quite good.</div>
               </div>
               <div class="cc-typing"><span></span><span></span><span></span></div>
             </div>
@@ -87,7 +87,7 @@
         <div class="cc-stats-inner">
           <div class="cc-stat"><div class="cc-stat-num">1</div><div class="cc-stat-label">单进程运行</div></div>
           <div class="cc-stat"><div class="cc-stat-num">0</div><div class="cc-stat-label">第三方运行时依赖</div></div>
-          <div class="cc-stat"><div class="cc-stat-num">3</div><div class="cc-stat-label">界面语言 zh / en / ja</div></div>
+          <div class="cc-stat"><div class="cc-stat-num">3</div><div class="cc-stat-label">界面语言 zh / en</div></div>
           <div class="cc-stat"><div class="cc-stat-num">&lt;1s</div><div class="cc-stat-label">页面加载目标</div></div>
         </div>
       </section>
@@ -105,7 +105,7 @@
           <article class="cc-card"><div class="cc-icon">⚡</div><h3>轻量与高性能</h3><p>单进程设计，页面加载目标 1 秒内；全站 HTML/CSS/JS 均由内部静态服务直接托管。</p></article>
           <article class="cc-card"><div class="cc-icon">🛡️</div><h3>治理体系完备</h3><p>开放注册审核、举报、禁言/封禁/IP 封禁、审计日志与站内信箱（公告 + 通知）。</p></article>
           <article class="cc-card"><div class="cc-icon">🎨</div><h3>Markdown 富消息</h3><p>文本渲染 Markdown、代码高亮与数学公式；上传图片/音视频/文件并支持分片断点续传。</p></article>
-          <article class="cc-card"><div class="cc-icon">🌍</div><h3>多语言界面</h3><p>内置 zh / en / ja 三种界面语言，展示地址与请求地址可分离部署。</p></article>
+          <article class="cc-card"><div class="cc-icon">🌍</div><h3>多语言界面</h3><p>内置 zh / en 三种界面语言，展示地址与请求地址可分离部署。</p></article>
         </div>
       </section>
 
@@ -121,45 +121,45 @@
             <h4><span class="cc-dot"></span>开始使用</h4>
             <p class="cc-count">4 篇文档</p>
             <ul>
-              <li><a href="/getting-started/quickstart">快速开始</a></li>
-              <li><a href="/getting-started/installation">生产部署</a></li>
-              <li><a href="/getting-started/configuration">配置说明</a></li>
-              <li><a href="/getting-started/oauth">GitHub 登录与仓库卡片</a></li>
+              <li><a :href="withBase('/getting-started/quickstart')">快速开始</a></li>
+              <li><a :href="withBase('/getting-started/installation')">生产部署</a></li>
+              <li><a :href="withBase('/getting-started/configuration')">配置说明</a></li>
+              <li><a :href="withBase('/getting-started/oauth')">GitHub 登录与仓库卡片</a></li>
             </ul>
           </div>
           <div class="cc-docs-col">
             <h4><span class="cc-dot"></span>使用指南</h4>
             <p class="cc-count">6 篇文档</p>
             <ul>
-              <li><a href="/guide/usage">用户指南</a></li>
-              <li><a href="/guide/administration">管理后台</a></li>
-              <li><a href="/guide/markdown">消息格式与富文本</a></li>
-              <li><a href="/guide/security">安全模型与加固</a></li>
-              <li><a href="/guide/clients">客户端</a></li>
-              <li><a href="/guide/faq">常见问题与排错</a></li>
+              <li><a :href="withBase('/guide/usage')">用户指南</a></li>
+              <li><a :href="withBase('/guide/administration')">管理后台</a></li>
+              <li><a :href="withBase('/guide/markdown')">消息格式与富文本</a></li>
+              <li><a :href="withBase('/guide/security')">安全模型与加固</a></li>
+              <li><a :href="withBase('/guide/clients')">客户端</a></li>
+              <li><a :href="withBase('/guide/faq')">常见问题与排错</a></li>
             </ul>
           </div>
           <div class="cc-docs-col">
             <h4><span class="cc-dot"></span>API 参考</h4>
             <p class="cc-count">9 篇文档</p>
             <ul>
-              <li><a href="/api/overview">API 概览与鉴权</a></li>
-              <li><a href="/api/auth">认证与登录</a></li>
-              <li><a href="/api/account">账号与资料</a></li>
-              <li><a href="/api/friends">好友与用户</a></li>
-              <li><a href="/api/groups">群组</a></li>
-              <li><a href="/api/messages">消息与上传</a></li>
-              <li><a href="/api/mailbox">站内信箱</a></li>
-              <li><a href="/api/admin">管理端 API</a></li>
-              <li><a href="/api/websocket">WebSocket 协议</a></li>
+              <li><a :href="withBase('/api/overview')">API 概览与鉴权</a></li>
+              <li><a :href="withBase('/api/auth')">认证与登录</a></li>
+              <li><a :href="withBase('/api/account')">账号与资料</a></li>
+              <li><a :href="withBase('/api/friends')">好友与用户</a></li>
+              <li><a :href="withBase('/api/groups')">群组</a></li>
+              <li><a :href="withBase('/api/messages')">消息与上传</a></li>
+              <li><a :href="withBase('/api/mailbox')">站内信箱</a></li>
+              <li><a :href="withBase('/api/admin')">管理端 API</a></li>
+              <li><a :href="withBase('/api/websocket')">WebSocket 协议</a></li>
             </ul>
           </div>
           <div class="cc-docs-col">
             <h4><span class="cc-dot"></span>开发</h4>
             <p class="cc-count">2 篇文档</p>
             <ul>
-              <li><a href="/development/architecture">架构说明</a></li>
-              <li><a href="/development/contribute">贡献指南</a></li>
+              <li><a :href="withBase('/development/architecture')">架构说明</a></li>
+              <li><a :href="withBase('/development/contribute')">贡献指南</a></li>
             </ul>
           </div>
         </div>
@@ -227,8 +227,8 @@
           <h2>把它跑在自己的机器上</h2>
           <p>没有云服务依赖，没有隐性成本。克隆、配置、启动，三步拥有一个可审计、可掌控的聊天服务器。</p>
           <div class="cc-actions">
-            <a class="cc-btn cc-btn-primary" href="/getting-started/quickstart">快速开始 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a class="cc-btn cc-btn-ghost" href="/getting-started/installation">生产部署</a>
+            <a class="cc-btn cc-btn-primary" :href="withBase('/getting-started/quickstart')">快速开始 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="cc-btn cc-btn-ghost" :href="withBase('/getting-started/installation')">生产部署</a>
           </div>
           <div class="cc-cta-meta"><span>零第三方运行时依赖</span><span>单进程 · node:sqlite</span><span>中英日三语界面</span></div>
         </div>
@@ -240,19 +240,19 @@
       <div class="cc-foot-inner">
         <div class="cc-foot-top">
           <div class="cc-foot-brand">
-            <a href="/" class="cc-brand">
+            <a :href="withBase('/')" class="cc-brand">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><defs><linearGradient id="footGrad" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#ffcb6b"/><stop offset="1" stop-color="#a8d94a"/></linearGradient></defs><circle cx="12" cy="12" r="9.1" stroke="url(#footGrad)" stroke-width="1.7"/><circle cx="12" cy="12" r="3.1" fill="url(#footGrad)"/></svg>
               CircleChat
             </a>
             <p>自托管的轻量多人聊天服务器。单进程部署，零第三方运行时依赖。</p>
           </div>
-          <div class="cc-foot-col"><h6>开始使用</h6><ul><li><a href="/README">项目简介</a></li><li><a href="/getting-started/quickstart">快速开始</a></li><li><a href="/getting-started/installation">生产部署</a></li><li><a href="/getting-started/configuration">配置说明</a></li><li><a href="/getting-started/oauth">GitHub 登录</a></li></ul></div>
-          <div class="cc-foot-col"><h6>使用指南</h6><ul><li><a href="/guide/usage">用户指南</a></li><li><a href="/guide/administration">管理后台</a></li><li><a href="/guide/markdown">消息与富文本</a></li><li><a href="/guide/security">安全模型与加固</a></li><li><a href="/guide/faq">常见问题与排错</a></li></ul></div>
-          <div class="cc-foot-col"><h6>开发者</h6><ul><li><a href="/api/overview">API 概览与鉴权</a></li><li><a href="/api/websocket">WebSocket 协议</a></li><li><a href="/development/architecture">架构说明</a></li><li><a href="/development/contribute">贡献指南</a></li></ul></div>
+          <div class="cc-foot-col"><h6>开始使用</h6><ul><li><a :href="withBase('/README')">项目简介</a></li><li><a :href="withBase('/getting-started/quickstart')">快速开始</a></li><li><a :href="withBase('/getting-started/installation')">生产部署</a></li><li><a :href="withBase('/getting-started/configuration')">配置说明</a></li><li><a :href="withBase('/getting-started/oauth')">GitHub 登录</a></li></ul></div>
+          <div class="cc-foot-col"><h6>使用指南</h6><ul><li><a :href="withBase('/guide/usage')">用户指南</a></li><li><a :href="withBase('/guide/administration')">管理后台</a></li><li><a :href="withBase('/guide/markdown')">消息与富文本</a></li><li><a :href="withBase('/guide/security')">安全模型与加固</a></li><li><a :href="withBase('/guide/faq')">常见问题与排错</a></li></ul></div>
+          <div class="cc-foot-col"><h6>开发者</h6><ul><li><a :href="withBase('/api/overview')">API 概览与鉴权</a></li><li><a :href="withBase('/api/websocket')">WebSocket 协议</a></li><li><a :href="withBase('/development/architecture')">架构说明</a></li><li><a :href="withBase('/development/contribute')">贡献指南</a></li></ul></div>
         </div>
         <div class="cc-foot-bottom">
           <div>CircleChat · 自托管的轻量多人聊天服务器</div>
-          <div class="cc-lang-tags"><span class="cc-on">中文</span><span>English</span><span>日本語</span></div>
+          <div class="cc-lang-tags"><span class="cc-on">中文</span><span>English</span></div>
         </div>
       </div>
     </footer>
@@ -261,6 +261,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { withBase } from 'vitepress'
 
 const isScrolled = ref(false)
 const onScroll = () => { isScrolled.value = window.scrollY > 12 }
