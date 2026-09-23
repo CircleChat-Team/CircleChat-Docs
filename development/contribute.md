@@ -63,7 +63,7 @@ git checkout main && git merge dev && git push   # 发布
 - 改动后构建：`npm run build`（或开发模式 `npm run dev`）。
 - 测试时浏览器需**硬刷新**（`Ctrl+Shift+R`），清理缓存的静态资源。
 - 新增 i18n 文案时，zh / en / ja 三种语言都要补齐（文案键以扁平 `'a.b.c'` 形式写，构建期 `nest()` 转成嵌套结构）。
-- 实时能力改完记得对照 [WebSocket 协议](../api/websocket)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致，不能只改一端。
+- 实时能力改完需对照 [WebSocket 协议](../api/websocket)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致，不能只改一端。
 
 ## 七、审计动作常量
 
@@ -86,7 +86,7 @@ git checkout main && git merge dev && git push   # 发布
 ## 九、许可
 
 - 本项目以 GNU GPL v3.0 开源。
-- 贡献即表示你同意以 GPL-3.0 条款许可你的贡献。
+- 贡献即表示同意以 GPL-3.0 条款许可所贡献的内容。
 - 完整第三方资源与许可见 CREDITS。
 
 ## 十、提交前检查清单

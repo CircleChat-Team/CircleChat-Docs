@@ -18,7 +18,7 @@
 
 - JSON 接口：请求体 `Content-Type: application/json`，响应也是 `application/json`。
 - 上传接口：请求体是 `multipart/form-data`（单次）或分片（见 [消息与上传](messages)）。
-- Cookie：登录成功后，会话令牌下发在 HttpOnly Cookie `circlechat_token` 里。前端所有请求带 `credentials: 'same-origin'`，**你用 curl 调试时需要用 `-c` / `-b` 维持同一个 cookie jar**。
+- Cookie：登录成功后，会话令牌下发在 HttpOnly Cookie `circlechat_token` 里。前端所有请求带 `credentials: 'same-origin'`，**用 curl 调试时须用 `-c` / `-b` 维持同一个 cookie jar**。
 
 ### 统一响应结构
 
@@ -128,7 +128,7 @@ curl -b cookies.txt 'https://chat.example.com/api/admin/logs?page=2&pageSize=50&
 | --- | --- | --- |
 | `200` | 成功 | 绝大多数正常响应 |
 | `400` | 参数不合法 / 请求体过大 | 用户名格式错、缺字段、`413` 之前的参数校验 |
-| `401` | 未登录或凭据错误 | Cookie 缺失 / 失效、密码错、2FA 码错 |
+| `401` | 未登录或凭据错误 | Cookie 缺失 / 失效、密码错、两步验证码错 |
 | `403` | 无权限 | 未激活 / 被拒 / 被封禁 / 非管理员 / 不是该房间成员 |
 | `404` | 资源不存在 / 分片会话失效 | 用户不存在、群组不存在、`upload/chunk` 会话已过期需重新 `init` |
 | `409` | 冲突 | 用户名已占用、已是好友 / 已发过请求、群主不能退群 |

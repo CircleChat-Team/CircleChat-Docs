@@ -15,7 +15,7 @@ git clone https://github.com/CircleChat-Team/CircleChat.git
 cd CircleChat
 ```
 
-如果你已经把仓库克隆到本地，直接进入目录即可。
+若仓库已克隆到本地，直接进入该目录即可。
 
 ## 3. 安装依赖
 

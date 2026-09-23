@@ -21,7 +21,7 @@
 
 ### 实时消息收不到 / 一直重连
 
-WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` 和 `Connection` 两个头（见 [生产部署 · 反向代理](../getting-started/installation#反向代理nginx--https)）。漏掉它们，连接会建立后立刻断，或者收不到推送。另外进程重启后内存会话清空，前端检测到会话失效会直接跳登录页而不是无限重连——这是预期行为。
+WebSocket 必须能升级。如果走了反向代理，务必透传 `Upgrade` 和 `Connection` 两个头（见 [生产部署 · 反向代理](../getting-started/installation#反向代理nginx--https)）。漏掉它们，连接会建立后立刻断，或者收不到推送。另外进程重启后内存会话清空，前端检测到会话失效会直接跳登录页而不是无限重连——这是预期行为。
 
 ## 登录与账号
 

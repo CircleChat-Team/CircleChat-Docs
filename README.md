@@ -26,7 +26,7 @@ CircleChat 是**自托管、轻量、多人的聊天服务器**。单进程部�
 - **后端**：Node.js（Nitro 运行时），业务逻辑集中在 `server/lib/`。
 - **数据**：SQLite（`node:sqlite`，Node ≥ 22.5 内建），数据库文件 `data/chatplus.db`。
 - **前端**：Vue 3 + TypeScript + Vite + Tailwind 4，构建产物由服务端内部静态服务托管。
-- **实时**：自研 WebSocket 协议（零第三方依赖，自实现握手 / 帧编解码 / 分片 / 掩码 / Ping-Pong）。
+- **实时**：自研 WebSocket 协议（零第三方运行时依赖，自实现握手 / 帧编解码 / 分片 / 掩码 / Ping-Pong）。
 - **多语言**：界面支持 zh / en / ja 三语。
 
 ## 依赖要求

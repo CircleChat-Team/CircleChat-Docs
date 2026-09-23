@@ -34,15 +34,15 @@
 { "username": "alice", "password": "Passw0rd!" }
 ```
 
-**未开启 2FA**，成功建立会话（下发 `Set-Cookie: circlechat_token=...`），响应：
+**未开启两步验证**，成功建立会话（下发 `Set-Cookie: circlechat_token=...`），响应：
 
 ```json
 { "ok": true, "username": "alice", "mustChange": false }
 ```
 
-`mustChange` 为 `true` 时，前端会强制弹出改密层，不让你进聊天页。
+`mustChange` 为 `true` 时，前端会强制弹出改密层，阻止进入聊天页。
 
-**已开启 2FA**，此时**不**建立会话，只回挑战码：
+**已开启两步验证**，此时**不**建立会话，只回挑战码：
 
 ```json
 { "ok": true, "need2fa": true, "challenge": "<hex 挑战码>" }
@@ -120,7 +120,7 @@
 { "code": "123456", "secret": "<setup 返回的 secret>" }
 ```
 
-校验通过后账号标记 `totp_enabled = 1`，下次登录走 2FA 挑战。响应 `{ "ok": true }`。
+校验通过后账号标记 `totp_enabled = 1`，下次登录走两步验证挑战。响应 `{ "ok": true }`。
 
 ### POST /api/twofa/disable
 

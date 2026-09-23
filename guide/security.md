@@ -26,8 +26,8 @@ CircleChat 将安全能力内建于服务端，不依赖前端自判。部署加
 ## 部署加固建议
 
 1. **务必上 HTTPS**：生产环境放在 Nginx 等反代后启用 TLS，不要在公网裸跑 HTTP。Cookie 走 HTTPS 才不会被中间人截。
-2. **改掉默认管理员密码**：首次启动的 `admin / Admin1234` 只是方便你起服务，上线前一定要改（个人中心改密，或 `npm run adduser -- admin <新密码>`）。
-3. **WebSocket 头透传**：反代别忘了 `Upgrade` / `Connection`，否则实时能力失效（见 [生产部署](../getting-started/installation#反向代理nginx--https)）。
+2. **改掉默认管理员密码**：首次启动的 `admin / Admin1234` 仅用于初始化服务，上线前必须改掉（个人中心改密，或 `npm run adduser -- admin <新密码>`）。
+3. **WebSocket 头透传**：反代务必透传 `Upgrade` / `Connection`，否则实时能力失效（见 [生产部署](../getting-started/installation#反向代理nginx--https)）。
 4. **限制数据库与上传目录权限**：`data/` 和 `public/uploads/` 只给运行进程读写，定期备份 `data/chatplus.db`（单文件，停服或静止时拷）。
 5. **及时更新 Node**：`node:sqlite` 等内建能力随 Node 版本修复，保持 ≥ 22.5 并跟进安全更新。
 6. **GitHub 令牌别泄露**：GitHub OAuth / 仓库卡片用的令牌只在服务端（`GH_TOKEN` / `app_config.github.apiToken`），`secret` 永不下发前端。

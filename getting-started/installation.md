@@ -52,7 +52,7 @@ location /chat {
 
 ### 让 Nginx 直接扛静态资源（可选）
 
-如果不想让 Node 进程每次都回静态文件，也可以把 `public/` 交给 Nginx 直接 serve，只把 `/api` 和 `/ws` 反代到后端。但要注意 `public/uploads/` 是运行期写入的，且 `admin.html` / `/js/admin.js` 的后端鉴权依赖落到 Node，这种拆法只在你清楚代价时才用。
+如果不想让 Node 进程每次都回静态文件，也可以把 `public/` 交给 Nginx 直接 serve，只把 `/api` 和 `/ws` 反代到后端。但要注意 `public/uploads/` 是运行期写入的，且 `admin.html` / `/js/admin.js` 的后端鉴权依赖落到 Node，这种拆法仅在明确权衡代价后考虑。
 
 ## 用 systemd 守护进程
 

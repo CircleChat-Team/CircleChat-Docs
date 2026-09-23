@@ -50,7 +50,7 @@ window.CHAT_CONFIG = {
 | 反代子路径 | `'/chat'` | 留空 | 后端挂在 Nginx 子路径下，前端也走该子路径 |
 | 跨域（前后端分离） | `'https://api.example.com'` | `'https://api.example.com'` 或实际展示域名 | 前端静态资源与 API 服务不在同一域 |
 
-WebSocket 地址固定同源 `/ws`（由 `chat.ts` 的 `wsUrl()` 拼 `apiBase` + `/ws`），所以跨域部署时浏览器仍按 `apiBase` 连 WS，记得在反代 / CORS 上放行。
+WebSocket 地址固定同源 `/ws`（由 `chat.ts` 的 `wsUrl()` 拼 `apiBase` + `/ws`），所以跨域部署时浏览器仍按 `apiBase` 连 WS，务必在反代 / CORS 上放行。
 
 ## 内置账号
 
@@ -69,7 +69,7 @@ WebSocket 地址固定同源 `/ws`（由 `chat.ts` 的 `wsUrl()` 拼 `apiBase` +
 | `data/access.log` | 应用层网络监控日志：所有 HTTP 请求与 WebSocket 连接，按 JSON 行追加并同步打印控制台 |
 | `public/uploads/` | 上传的文件落盘目录，受 `FILE_TTL_DAYS` 控制保留；按内容 sha256 去重，同名内容只落盘一次 |
 
-部署时记得把 `data/` 和 `public/uploads/` 纳入备份（数据库是单文件，直接拷即可，但拷贝前最好停服或确保没有写入）。
+部署时应将 `data/` 和 `public/uploads/` 纳入备份（数据库为单文件，可直接拷贝，但拷贝前宜停服或确保无写入）。
 
 ## 运行时常量（供参考）
 

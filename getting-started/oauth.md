@@ -2,14 +2,14 @@
 
 CircleChat 内置了 GitHub 相关的两块能力：一是**用 GitHub 账号登录 / 绑定**（OAuth），二是**消息里贴 GitHub 仓库链接自动生成仓库卡片**。两者都依赖服务端保留的 GitHub 凭据，令牌**只在服务端使用，永不下发前端**。
 
-## 一、GitHub OAuth 登录
+## GitHub OAuth 登录
 
 OAuth 凭据存在全局配置表 `app_config` 里（密钥字段 `github.apiToken` / OAuth 的 `client_secret` 不下发前端）。开关由是否配置了 `client_id` / `client_secret` 决定——没配置时登录页不显示 GitHub 入口。
 
 ### 在 GitHub 创建 OAuth App
 
 1. 打开 GitHub → Settings → Developer settings → OAuth Apps → New OAuth App。
-2. **Homepage URL** 填你的站点地址（如 `https://chat.example.com`）。
+2. **Homepage URL** 填站点地址（如 `https://chat.example.com`）。
 3. **Authorization callback URL** 填 `https://chat.example.com/api/oauth/github/callback`（注意路径必须是 `/api/oauth/github/callback`，与服务端 `github/callback` 路由一致）。
 4. 创建后拿到 `Client ID` 和 `Client Secret`。
 
@@ -34,7 +34,7 @@ OAuth 凭据存在全局配置表 `app_config` 里（密钥字段 `github.apiTok
 
 绑定后用户可用 GitHub 身份登录；解绑不影响原账号密码登录。
 
-## 二、仓库卡片（消息内 GitHub 链接）
+## 仓库卡片（消息内 GitHub 链接）
 
 在聊天里贴 GitHub 仓库链接（如 `https://github.com/owner/repo`），前端识别后拉取并渲染仓库卡片：
 
@@ -49,7 +49,7 @@ OAuth 凭据存在全局配置表 `app_config` 里（密钥字段 `github.apiTok
 
 ## 通过环境变量提供令牌
 
-如果不想走管理面板，也可以直接给服务进程注入令牌环境变量（效果等同 `app_config.github.apiToken`）：
+除管理面板外，也可直接为服务进程注入令牌环境变量（效果等同 `app_config.github.apiToken`）：
 
 ```bash
 GH_TOKEN=ghp_xxx FILE_TTL_DAYS=15 npm start
