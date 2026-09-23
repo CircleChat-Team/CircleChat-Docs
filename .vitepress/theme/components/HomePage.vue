@@ -37,7 +37,7 @@
           <p class="cc-lede">
             自托管的轻量多人聊天服务器。<strong>单进程部署</strong>、
             <strong>群组与私聊</strong>、<strong>零第三方运行时依赖</strong>，
-            界面支持中英2语，页面加载目标 1 秒内。
+            界面支持中英日三语，页面加载目标 1 秒内。
           </p>
           <div class="cc-actions">
             <a class="cc-btn cc-btn-primary" :href="withBase('/getting-started/quickstart')">
@@ -54,7 +54,7 @@
         <!-- 聊天卡片 -->
         <div class="cc-chat-wrap">
           <div class="cc-float-badge cc-b1">🛡️ 治理体系完备</div>
-          <div class="cc-float-badge cc-b2">🌍 zh / en</div>
+          <div class="cc-float-badge cc-b2">🌍 zh / en / ja</div>
           <div class="cc-chat-card">
             <div class="cc-chat-head">
               <div class="cc-chat-avatar">前</div>
@@ -88,7 +88,7 @@
         <div class="cc-stats-inner">
           <div class="cc-stat"><div class="cc-stat-num">1</div><div class="cc-stat-label">单进程运行</div></div>
           <div class="cc-stat"><div class="cc-stat-num">0</div><div class="cc-stat-label">第三方运行时依赖</div></div>
-          <div class="cc-stat"><div class="cc-stat-num">2</div><div class="cc-stat-label">界面语言 zh / en</div></div>
+          <div class="cc-stat"><div class="cc-stat-num">3</div><div class="cc-stat-label">界面语言 zh / en / ja</div></div>
           <div class="cc-stat"><div class="cc-stat-num">&lt;1s</div><div class="cc-stat-label">页面加载目标</div></div>
         </div>
       </section>
@@ -106,7 +106,7 @@
           <article class="cc-card"><div class="cc-icon">⚡</div><h3>轻量与高性能</h3><p>单进程设计，页面加载目标 1 秒内；全站 HTML/CSS/JS 均由内部静态服务直接托管。</p></article>
           <article class="cc-card"><div class="cc-icon">🛡️</div><h3>治理体系完备</h3><p>开放注册审核、举报、禁言/封禁/IP 封禁、审计日志与站内信箱（公告 + 通知）。</p></article>
           <article class="cc-card"><div class="cc-icon">🎨</div><h3>Markdown 富消息</h3><p>文本渲染 Markdown、代码高亮与数学公式；上传图片/音视频/文件并支持分片断点续传。</p></article>
-          <article class="cc-card"><div class="cc-icon">🌍</div><h3>多语言界面</h3><p>内置 zh / en 三种界面语言，展示地址与请求地址可分离部署。</p></article>
+          <article class="cc-card"><div class="cc-icon">🌍</div><h3>多语言界面</h3><p>内置 zh / en / ja 三语界面语言，展示地址与请求地址可分离部署。</p></article>
         </div>
       </section>
 
