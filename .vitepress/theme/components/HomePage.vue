@@ -185,7 +185,7 @@
             <div class="cc-term-bar"><div class="cc-dots"><i></i><i></i><i></i></div><span>bash — circlechat</span></div>
             <div class="cc-term-body">
               <span class="cc-ln cc-cmt"># 1. 获取源码</span>
-              <span class="cc-ln"><span class="cc-cmd">git clone</span> <span class="cc-str">https://github.com/your-org/circlechat.git</span></span>
+              <span class="cc-ln"><span class="cc-cmd">git clone</span> <span class="cc-str">https://github.com/CircleChat-Team/CircleChat.git</span></span>
               <span class="cc-ln"><span class="cc-cmd">cd</span> circlechat</span>
               <span class="cc-ln"> </span>
               <span class="cc-ln cc-cmt"># 2. 配置环境</span>
@@ -293,7 +293,7 @@
             <h2>自由、可审计、由你掌控</h2>
             <p>CircleChat 以开源方式发布。你可以审计每一行代码、掌控自己的数据，并随时参与社区共建。</p>
             <div class="cc-oss-actions">
-              <a class="cc-btn cc-btn-primary" href="https://github.com/your-org/circlechat" target="_blank" rel="noopener">
+              <a class="cc-btn cc-btn-primary" href="https://github.com/CircleChat-Team/CircleChat" target="_blank" rel="noopener">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
                 在 GitHub 上查看
               </a>
