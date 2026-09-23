@@ -17,6 +17,7 @@
           CircleChat
         </a>
         <nav class="cc-nav-links">
+          <a :href="withBase('/')">首页</a>
           <a :href="withBase('/getting-started/quickstart')">开始使用</a>
           <a :href="withBase('/api/overview')">API 参考</a>
           <a :href="withBase('/development/architecture')">开发指南</a>
@@ -87,7 +88,7 @@
         <div class="cc-stats-inner">
           <div class="cc-stat"><div class="cc-stat-num">1</div><div class="cc-stat-label">单进程运行</div></div>
           <div class="cc-stat"><div class="cc-stat-num">0</div><div class="cc-stat-label">第三方运行时依赖</div></div>
-          <div class="cc-stat"><div class="cc-stat-num">3</div><div class="cc-stat-label">界面语言 zh / en</div></div>
+          <div class="cc-stat"><div class="cc-stat-num">2</div><div class="cc-stat-label">界面语言 zh / en</div></div>
           <div class="cc-stat"><div class="cc-stat-num">&lt;1s</div><div class="cc-stat-label">页面加载目标</div></div>
         </div>
       </section>
@@ -218,6 +219,94 @@
           <div class="cc-api-card"><h5><em>✉️</em> 消息与上传</h5><ul class="cc-api-list"><li><span class="cc-verb cc-get">GET</span><span class="cc-path">/api/messages/:room</span></li><li><span class="cc-verb cc-post">POST</span><span class="cc-path">/api/messages</span></li><li><span class="cc-verb cc-post">POST</span><span class="cc-path">/api/upload/chunk</span></li></ul></div>
           <div class="cc-api-card"><h5><em>📮</em> 站内信箱</h5><ul class="cc-api-list"><li><span class="cc-verb cc-get">GET</span><span class="cc-path">/api/mailbox/notices</span></li><li><span class="cc-verb cc-get">GET</span><span class="cc-path">/api/mailbox/announcements</span></li><li><span class="cc-verb cc-post">POST</span><span class="cc-path">/api/mailbox/read</span></li></ul></div>
           <div class="cc-api-card"><h5><em>🔌</em> WebSocket 协议</h5><ul class="cc-api-list"><li><span class="cc-verb cc-ws">WS</span><span class="cc-path">/ws · 自研帧协议</span></li><li><span class="cc-verb cc-ws">EVT</span><span class="cc-path">message · presence · typing</span></li><li><span class="cc-verb cc-ws">EVT</span><span class="cc-path">reaction · recall · notice</span></li></ul></div>
+        </div>
+      </section>
+
+      <!-- 技术架构 -->
+      <section class="cc-arch">
+        <div class="cc-section-head">
+          <span class="cc-eyebrow">技术架构</span>
+          <h2>一个进程，承载全部</h2>
+          <p>没有微服务、没有外部数据库、没有第三方运行时依赖。所有能力都在单个 Node.js 进程内闭环。</p>
+        </div>
+        <div class="cc-arch-layout">
+          <div class="cc-arch-stack">
+            <div class="cc-arch-core">
+              <span class="cc-arch-tag">单进程</span>
+              <strong>CircleChat 服务进程</strong>
+              <span class="cc-arch-sub">Node.js · node:sqlite</span>
+            </div>
+            <div class="cc-arch-branches">
+              <div class="cc-arch-leaf">🌐 HTTP 接口</div>
+              <div class="cc-arch-leaf">🔌 WebSocket 网关</div>
+              <div class="cc-arch-leaf">📁 静态资源托管</div>
+              <div class="cc-arch-leaf">🗄️ SQLite 存储</div>
+            </div>
+          </div>
+          <div class="cc-arch-grid">
+            <article class="cc-card"><div class="cc-icon">🧩</div><h3>单进程设计</h3><p>HTTP、WebSocket 与静态服务由同一进程驱动，一条命令启动，运维零负担。</p></article>
+            <article class="cc-card"><div class="cc-icon">🗄️</div><h3>node:sqlite 内建存储</h3><p>直接基于 Node.js 内建 SQLite，无需外部数据库服务，文件即数据库，备份即复制。</p></article>
+            <article class="cc-card"><div class="cc-icon">⚙️</div><h3>自研 WebSocket 帧协议</h3><p>轻量可读的私有帧协议负责 presence、typing、reaction 等事件，不依赖第三方库。</p></article>
+            <article class="cc-card"><div class="cc-icon">🚫</div><h3>零第三方运行时依赖</h3><p>仅依赖 Node.js 内建能力，源码可逐行审查，安全边界清晰可控。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 为什么选我们 -->
+      <section class="cc-why">
+        <div class="cc-section-head">
+          <span class="cc-eyebrow">为什么选 CircleChat</span>
+          <h2>把聊天掌控在自己手里</h2>
+          <p>与按席位收费、数据托管在第三方的 SaaS 聊天服务相比，自托管意味着真正的自主。</p>
+        </div>
+        <div class="cc-compare">
+          <div class="cc-compare-col cc-compare-us">
+            <div class="cc-compare-head"><span class="cc-logo">◯</span><h4>CircleChat</h4><span class="cc-badge">自托管</span></div>
+            <ul class="cc-compare-list">
+              <li><span class="cc-yes">✓</span> 数据全部存于你自己的服务器</li>
+              <li><span class="cc-yes">✓</span> 零许可费用，无按席位计费</li>
+              <li><span class="cc-yes">✓</span> 源码可逐行审计</li>
+              <li><span class="cc-yes">✓</span> 单进程，低资源占用</li>
+              <li><span class="cc-yes">✓</span> 私有化部署，内网可用</li>
+              <li><span class="cc-yes">✓</span> 自由修改与扩展</li>
+            </ul>
+          </div>
+          <div class="cc-compare-col cc-compare-them">
+            <div class="cc-compare-head"><span class="cc-logo cc-logo-cloud">☁</span><h4>传统 SaaS</h4><span class="cc-badge cc-badge-mut">云服务</span></div>
+            <ul class="cc-compare-list">
+              <li><span class="cc-no">✕</span> 数据托管在第三方平台</li>
+              <li><span class="cc-no">✕</span> 按席位 / 月持续付费</li>
+              <li><span class="cc-no">✕</span> 闭源黑盒，无法审计</li>
+              <li><span class="cc-no">✕</span> 重组件栈，资源占用高</li>
+              <li><span class="cc-no">✕</span> 依赖外网与厂商可用性</li>
+              <li><span class="cc-no">✕</span> 受平台功能限制</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 开源与社区 -->
+      <section class="cc-oss">
+        <div class="cc-oss-box">
+          <div class="cc-oss-copy">
+            <span class="cc-eyebrow">开源与社区</span>
+            <h2>自由、可审计、由你掌控</h2>
+            <p>CircleChat 以开源方式发布。你可以审计每一行代码、掌控自己的数据，并随时参与社区共建。</p>
+            <div class="cc-oss-actions">
+              <a class="cc-btn cc-btn-primary" href="https://github.com/your-org/circlechat" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                在 GitHub 上查看
+              </a>
+              <a class="cc-btn cc-btn-ghost" :href="withBase('/development/contribute')">贡献指南</a>
+            </div>
+            <div class="cc-oss-meta"><span>开源许可证</span><span>可自托管</span><span>社区驱动</span></div>
+          </div>
+          <div class="cc-oss-grid">
+            <div class="cc-oss-item"><div class="cc-oss-ic">🔍</div><h5>完全可审计</h5><p>无第三方运行时依赖，源码可逐行审查。</p></div>
+            <div class="cc-oss-item"><div class="cc-oss-ic">🔒</div><h5>数据自持</h5><p>所有消息与文件存于你自己的服务器。</p></div>
+            <div class="cc-oss-item"><div class="cc-oss-ic">🤝</div><h5>社区共建</h5><p>欢迎提交 Issue、PR 与文档改进。</p></div>
+            <div class="cc-oss-item"><div class="cc-oss-ic">🚫</div><h5>零厂商锁定</h5><p>自由部署、自由修改，不受平台约束。</p></div>
+          </div>
         </div>
       </section>
 
@@ -795,6 +884,108 @@ onUnmounted(() => {
 .cc-path { color: #c9c5b9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 980px) { .cc-api-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .cc-api-grid { grid-template-columns: 1fr; } }
+
+/* 技术架构 */
+.cc-arch { max-width: 1240px; margin: 0 auto; padding: 0 24px 110px; }
+.cc-arch-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: stretch; }
+.cc-arch-stack {
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .012));
+  padding: 28px; display: flex; flex-direction: column; gap: 18px;
+}
+.cc-arch-core {
+  border-radius: 14px; padding: 24px 20px; text-align: center;
+  border: 1px solid rgba(242, 163, 60, .30);
+  background: linear-gradient(150deg, rgba(242, 163, 60, .16), rgba(168, 217, 74, .07));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07);
+}
+.cc-arch-core strong { display: block; font-size: 1.04rem; font-weight: 720; margin-top: 7px; letter-spacing: -.01em; }
+.cc-arch-tag { font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--amber-lt); }
+.cc-arch-sub { display: block; font-size: .78rem; color: var(--muted); margin-top: 5px; }
+.cc-arch-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cc-arch-leaf {
+  padding: 15px 12px; border-radius: 11px; text-align: center;
+  font-size: .84rem; color: #d8d3c6; font-weight: 560;
+  border: 1px solid var(--line-soft); background: rgba(255, 255, 255, .03);
+}
+.cc-arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+/* 为什么选我们 */
+.cc-why { max-width: 1240px; margin: 0 auto; padding: 0 24px 110px; }
+.cc-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.cc-compare-col {
+  border-radius: var(--radius); border: 1px solid var(--line);
+  padding: 28px 26px 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .012));
+}
+.cc-compare-us { border-color: rgba(168, 217, 74, .30); background: linear-gradient(180deg, rgba(168, 217, 74, .08), rgba(255, 255, 255, .012)); }
+.cc-compare-head { display: flex; align-items: center; gap: 11px; margin-bottom: 22px; }
+.cc-compare-head h4 { margin: 0; font-size: 1.06rem; font-weight: 740; }
+.cc-logo {
+  width: 34px; height: 34px; border-radius: 10px; flex: none;
+  display: grid; place-items: center; font-size: 17px; color: #1a1206;
+  background: linear-gradient(140deg, var(--amber-lt), var(--amber) 65%, #dd8a1e);
+}
+.cc-logo-cloud { background: linear-gradient(140deg, #6d726b, #4d514b); color: #d5d0c4; }
+.cc-badge {
+  margin-left: auto; font-size: .7rem; font-weight: 700; padding: 4px 11px; border-radius: 99px; letter-spacing: .04em;
+  border: 1px solid rgba(168, 217, 74, .35); background: rgba(168, 217, 74, .12); color: var(--lime);
+}
+.cc-badge-mut { border-color: rgba(255, 255, 255, .12); background: rgba(255, 255, 255, .04); color: var(--muted); }
+.cc-compare-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+.cc-compare-list li { display: flex; align-items: flex-start; gap: 11px; font-size: .9rem; color: #e0dccf; line-height: 1.6; }
+.cc-compare-them .cc-compare-list li { color: var(--muted); }
+.cc-yes, .cc-no {
+  flex: none; width: 20px; height: 20px; border-radius: 50%;
+  display: grid; place-items: center; font-size: .7rem; font-weight: 800; margin-top: 2px;
+}
+.cc-yes { color: #10210a; background: linear-gradient(140deg, #c9e77a, var(--lime)); }
+.cc-no { color: #2a1414; background: rgba(232, 105, 90, .38); border: 1px solid rgba(232, 105, 90, .5); }
+
+/* 开源与社区 */
+.cc-oss { max-width: 1240px; margin: 0 auto; padding: 0 24px 110px; }
+.cc-oss-box {
+  position: relative; overflow: hidden;
+  border-radius: 28px; border: 1px solid rgba(255, 255, 255, .10);
+  background:
+    radial-gradient(620px 320px at 90% 0%, rgba(168, 217, 74, .14), transparent 60%),
+    radial-gradient(620px 340px at 10% 100%, rgba(242, 163, 60, .16), transparent 60%),
+    linear-gradient(165deg, rgba(30, 34, 28, .92), rgba(15, 18, 15, .96));
+  box-shadow: 0 50px 100px -50px rgba(0, 0, 0, .98);
+  padding: 56px 48px;
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
+}
+.cc-oss-copy .cc-eyebrow { margin-bottom: 14px; }
+.cc-oss-copy h2 { margin: 0 0 14px; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 780; letter-spacing: -.035em; line-height: 1.18; }
+.cc-oss-copy p { margin: 0 0 26px; color: var(--muted); font-size: 1rem; line-height: 1.75; max-width: 40ch; }
+.cc-oss-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.cc-oss-meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: .82rem; color: var(--muted-2); }
+.cc-oss-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.cc-oss-meta span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 8px rgba(168, 217, 74, .9); }
+.cc-oss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cc-oss-item {
+  padding: 18px 18px 20px; border-radius: 14px;
+  border: 1px solid var(--line-soft); background: rgba(255, 255, 255, .03);
+  transition: border-color .3s ease, background .3s ease, transform .4s var(--ease);
+}
+.cc-oss-item:hover { border-color: rgba(242, 163, 60, .30); background: rgba(242, 163, 60, .06); transform: translateY(-3px); }
+.cc-oss-ic { font-size: 20px; margin-bottom: 10px; }
+.cc-oss-item h5 { margin: 0 0 6px; font-size: .94rem; font-weight: 680; }
+.cc-oss-item p { margin: 0; font-size: .82rem; color: var(--muted); line-height: 1.6; }
+
+@media (max-width: 980px) {
+  .cc-arch-layout { grid-template-columns: 1fr; }
+  .cc-oss-box { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 760px) {
+  .cc-compare { grid-template-columns: 1fr; }
+  .cc-oss-box { padding: 44px 26px; }
+}
+@media (max-width: 560px) {
+  .cc-arch-grid { grid-template-columns: 1fr; }
+  .cc-arch-branches { grid-template-columns: 1fr; }
+  .cc-oss-grid { grid-template-columns: 1fr; }
+}
 
 /* CTA */
 .cc-cta { max-width: 1240px; margin: 0 auto; padding: 0 24px 120px; }

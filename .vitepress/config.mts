@@ -20,6 +20,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     nav: [
+      { text: "首页", link: "/" },
       { text: '开始使用', link: '/getting-started/quickstart' },
       { text: 'API 参考', link: '/api/overview' },
       { text: '开发指南', link: '/development/architecture' },
@@ -82,7 +83,6 @@ export default defineConfig({
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/CircleChat-Team/CircleChat-Docs' }
-      // 可按需添加 discord / qq / bilibili 等
     ],
     search: {
       provider: 'local',
