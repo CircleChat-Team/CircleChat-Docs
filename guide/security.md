@@ -1,6 +1,6 @@
 # 安全模型与加固建议
 
-CircleChat 把安全能力做在服务端，尽量不依赖前端判断。这一页讲清楚它做了什么、以及你部署时还该补什么。所有运行期常量见 [配置说明 · 内置安全限制](../getting-started/configuration.md#内置安全限制)。
+CircleChat 把安全能力做在服务端，尽量不依赖前端判断。这一页讲清楚它做了什么、以及你部署时还该补什么。所有运行期常量见 [配置说明 · 内置安全限制](../getting-started/configuration#内置安全限制)。
 
 ## 身份与凭证
 
@@ -20,14 +20,14 @@ CircleChat 把安全能力做在服务端，尽量不依赖前端判断。这一
 ## 治理与可追溯
 
 - **处罚**：禁言 / 封禁 / IP 封禁由服务端 `moderate.blockFor` 计算，发消息 / 建连时拦截并推 `penalty` 帧，前端禁用输入——不是前端自判，绕不过。
-- **审计日志**：登录、发消息、上传、处罚、举报等操作写入审计表（容量 5000 条，单条详情 300 字符），管理后台可按动作 / 操作人 / 目标过滤（见 [管理后台 · 操作日志](../guide/administration.md#操作日志)）。
+- **审计日志**：登录、发消息、上传、处罚、举报等操作写入审计表（容量 5000 条，单条详情 300 字符），管理后台可按动作 / 操作人 / 目标过滤（见 [管理后台 · 操作日志](../guide/administration#操作日志)）。
 - **访问日志**：所有 HTTP 请求与 WebSocket 连接以 JSON 行写入 `data/access.log`，附带来源 IP，便于外部监控。
 
 ## 部署加固建议
 
 1. **务必上 HTTPS**：生产环境放在 Nginx 等反代后启用 TLS，不要在公网裸跑 HTTP。Cookie 走 HTTPS 才不会被中间人截。
 2. **改掉默认管理员密码**：首次启动的 `admin / Admin1234` 只是方便你起服务，上线前一定要改（个人中心改密，或 `npm run adduser -- admin <新密码>`）。
-3. **WebSocket 头透传**：反代别忘了 `Upgrade` / `Connection`，否则实时能力失效（见 [生产部署](../getting-started/installation.md#反向代理nginx--https)）。
+3. **WebSocket 头透传**：反代别忘了 `Upgrade` / `Connection`，否则实时能力失效（见 [生产部署](../getting-started/installation#反向代理nginx--https)）。
 4. **限制数据库与上传目录权限**：`data/` 和 `public/uploads/` 只给运行进程读写，定期备份 `data/chatplus.db`（单文件，停服或静止时拷）。
 5. **及时更新 Node**：`node:sqlite` 等内建能力随 Node 版本修复，保持 ≥ 22.5 并跟进安全更新。
 6. **GitHub 令牌别泄露**：GitHub OAuth / 仓库卡片用的令牌只在服务端（`GH_TOKEN` / `app_config.github.apiToken`），`secret` 永不下发前端。

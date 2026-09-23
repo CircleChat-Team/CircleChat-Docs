@@ -1,6 +1,6 @@
 # 认证与登录
 
-注册、登录、登出、健康检查、两步验证（TOTP）相关接口。所有接口路径都以 `/api` 开头。鉴权总览见 [API 概览](overview.md)。
+注册、登录、登出、健康检查、两步验证（TOTP）相关接口。所有接口路径都以 `/api` 开头。鉴权总览见 [API 概览](overview)。
 
 ## POST /api/register
 
@@ -126,4 +126,4 @@
 
 关闭两步验证（需通过既有校验，如再提交一次有效 `code`）。响应 `{ "ok": true }`。
 
-> 在线 / 隐身 / 离开状态也可通过 WebSocket 的 `status` 消息实时更新，详见 [WebSocket 协议](websocket.md)。
+> 在线 / 隐身 / 离开状态也可通过 WebSocket 的 `status` 消息实时更新，详见 [WebSocket 协议](websocket)。

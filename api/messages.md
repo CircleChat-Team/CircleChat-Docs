@@ -1,6 +1,6 @@
 # 消息与上传
 
-历史消息查询与文件上传。**发送 / 撤回 / 回应等实时操作走 WebSocket**，见 [WebSocket 协议](websocket.md)。鉴权总览见 [API 概览](overview.md)。
+历史消息查询与文件上传。**发送 / 撤回 / 回应等实时操作走 WebSocket**，见 [WebSocket 协议](websocket)。鉴权总览见 [API 概览](overview)。
 
 ## 消息记录结构
 

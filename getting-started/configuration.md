@@ -105,4 +105,4 @@ WebSocket 地址固定同源 `/ws`（由 `chat.ts` 的 `wsUrl()` 拼 `apiBase` +
 - 存储型 XSS 防护：`uploads/` 下非图片 / 视频 / 音频的文件强制 `application/octet-stream` + `attachment`；WebSocket 的 `file` / `image` 内容必须是 `/uploads/<hex>.<ext>` 合法路径，挡掉 `javascript:` 等伪造链接。
 - 单文件上限 100MB（服务端 `MAX_UPLOAD`）；分片每片 5MB；单条文本消息上限 4096 字符；每房间保留最近 500 条消息。
 
-更多安全与数据细节见[用户指南 · 账号安全](../guide/usage.md#账号安全)。
+更多安全与数据细节见[用户指南 · 账号安全](../guide/usage#账号安全)。

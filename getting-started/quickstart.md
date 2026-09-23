@@ -6,7 +6,7 @@
 
 - **Node.js ≥ 22.5**：后端直接用内建的 `node:sqlite`，版本不够会在启动时崩溃。前端打包（`vite build`）则要求 Node ≥ 20.19。
 - **npm**：建议 ≥ 10。旧版 npm（比如 9.x）会在 `npm install` 时改写 `package-lock.json`（常见是把 `libc` 字段删掉），部署机上 `git pull` 会因此因为工作区不干净而中止。
-- 操作系统无特殊要求，Linux / macOS / Windows 均可；本机只是开发体验，真正部署见[生产部署](installation.md)。
+- 操作系统无特殊要求，Linux / macOS / Windows 均可；本机只是开发体验，真正部署见[生产部署](installation)。
 
 ## 2. 获取源码
 
@@ -90,7 +90,7 @@ CI 在 `.github/workflows/lint.yml` 里于 push / PR 时跑 `npm run typecheck`�
 PORT=8080 npm start      # 监听 8080
 ```
 
-其它运行时配置（上传保留天数、数据库文件路径等）也通过环境变量控制，见[配置说明](configuration.md)。
+其它运行时配置（上传保留天数、数据库文件路径等）也通过环境变量控制，见[配置说明](configuration)。
 
 ## 10. 目录结构速览
 
@@ -112,6 +112,6 @@ CircleChat/
 
 ## 下一步
 
-- 想接 Nginx / 反向代理 / 容器，看[生产部署](installation.md)。
-- 想调端口、上传保留天数、显示与请求地址分离，看[配置说明](configuration.md)。
-- 普通用户怎么用，看[用户指南](../guide/usage.md)；管理员怎么治理，看[管理后台](../guide/administration.md)。
+- 想接 Nginx / 反向代理 / 容器，看[生产部署](installation)。
+- 想调端口、上传保留天数、显示与请求地址分离，看[配置说明](configuration)。
+- 普通用户怎么用，看[用户指南](../guide/usage)；管理员怎么治理，看[管理后台](../guide/administration)。

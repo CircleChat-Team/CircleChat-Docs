@@ -1,6 +1,6 @@
 # API 概览与鉴权
 
-本文档描述 CircleChat 后端的 HTTP API 与 WebSocket 协议。所有接口都挂在服务根路径下的 `/api/...`。HTTP 部分负责注册 / 登录 / 资料 / 好友 / 群组 / 历史消息 / 上传 / 管理；**实时能力**（消息收发、在线状态、正在输入、表情回应、撤回、处罚推送）全部走 WebSocket，见 [WebSocket 协议](websocket.md)。
+本文档描述 CircleChat 后端的 HTTP API 与 WebSocket 协议。所有接口都挂在服务根路径下的 `/api/...`。HTTP 部分负责注册 / 登录 / 资料 / 好友 / 群组 / 历史消息 / 上传 / 管理；**实时能力**（消息收发、在线状态、正在输入、表情回应、撤回、处罚推送）全部走 WebSocket，见 [WebSocket 协议](websocket)。
 
 ## 基础约定
 
@@ -17,7 +17,7 @@
 ### 内容类型
 
 - JSON 接口：请求体 `Content-Type: application/json`，响应也是 `application/json`。
-- 上传接口：请求体是 `multipart/form-data`（单次）或分片（见 [消息与上传](messages.md)）。
+- 上传接口：请求体是 `multipart/form-data`（单次）或分片（见 [消息与上传](messages)）。
 - Cookie：登录成功后，会话令牌下发在 HttpOnly Cookie `circlechat_token` 里。前端所有请求带 `credentials: 'same-origin'`，**你用 curl 调试时需要用 `-c` / `-b` 维持同一个 cookie jar**。
 
 ### 统一响应结构
@@ -139,17 +139,17 @@ curl -b cookies.txt 'https://chat.example.com/api/admin/logs?page=2&pageSize=50&
 
 ## 上传与 WebSocket
 
-- **文件上传**（单次与分片）是特殊接口，细节见 [消息与上传](messages.md)。
-- **实时消息、在线状态、正在输入、表情回应、撤回、处罚推送**全部走 WebSocket，握手在 `/ws`，协议细节见 [WebSocket 协议](websocket.md)。
+- **文件上传**（单次与分片）是特殊接口，细节见 [消息与上传](messages)。
+- **实时消息、在线状态、正在输入、表情回应、撤回、处罚推送**全部走 WebSocket，握手在 `/ws`，协议细节见 [WebSocket 协议](websocket)。
 
 ## 接口分类总览
 
 | 章节 | 覆盖接口 |
 | --- | --- |
-| [认证与登录](auth.md) | `register` / `login` / `logout` / `health` / `setup` / `twofa/*` |
-| [账号与资料](account.md) | `me` / `me/penalties` / `pass` / `profile` / `settings` / `twofa/setup·enable·disable` |
-| [好友与用户](friends.md) | `users` / `friends` / `friends/request·accept·decline` / `report` |
-| [群组](groups.md) | `groups` 系列 |
-| [消息与上传](messages.md) | `messages` / `messages/search` / `upload` 系列 |
-| [站内信箱](mailbox.md) | `announcements` / `me/notifications` / `me/notifications/read` |
-| [管理端 API](admin.md) | `admin` 系列 |
+| [认证与登录](auth) | `register` / `login` / `logout` / `health` / `setup` / `twofa/*` |
+| [账号与资料](account) | `me` / `me/penalties` / `pass` / `profile` / `settings` / `twofa/setup·enable·disable` |
+| [好友与用户](friends) | `users` / `friends` / `friends/request·accept·decline` / `report` |
+| [群组](groups) | `groups` 系列 |
+| [消息与上传](messages) | `messages` / `messages/search` / `upload` 系列 |
+| [站内信箱](mailbox) | `announcements` / `me/notifications` / `me/notifications/read` |
+| [管理端 API](admin) | `admin` 系列 |

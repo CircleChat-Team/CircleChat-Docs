@@ -55,7 +55,7 @@
 
 ## 管理端
 
-公告的**发布 / 删除**由管理员操作，走管理端接口，见[管理端 API · 公告](admin.md#公告)。涉及：
+公告的**发布 / 删除**由管理员操作，走管理端接口，见[管理端 API · 公告](admin#公告)。涉及：
 
 - `POST /api/admin/announcements`：发布公告
 - `DELETE /api/admin/announcements`：删除公告

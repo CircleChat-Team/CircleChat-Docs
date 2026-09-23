@@ -1,6 +1,6 @@
 # 常见问题与排错
 
-这一页收集部署与使用 CircleChat 时最常碰到的问题。大多答案都能在 [配置说明](../getting-started/configuration.md) 和 [生产部署](../getting-started/installation.md) 找到依据，这里集中成问答形式。
+这一页收集部署与使用 CircleChat 时最常碰到的问题。大多答案都能在 [配置说明](../getting-started/configuration) 和 [生产部署](../getting-started/installation) 找到依据，这里集中成问答形式。
 
 ## 部署与构建
 
@@ -21,13 +21,13 @@
 
 ### 实时消息收不到 / 一直重连
 
-WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` 和 `Connection` 两个头（见 [生产部署 · 反向代理](../getting-started/installation.md#反向代理nginx--https)）。漏掉它们，连接会建立后立刻断，或者收不到推送。另外进程重启后内存会话清空，前端检测到会话失效会直接跳登录页而不是无限重连——这是预期行为。
+WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` 和 `Connection` 两个头（见 [生产部署 · 反向代理](../getting-started/installation#反向代理nginx--https)）。漏掉它们，连接会建立后立刻断，或者收不到推送。另外进程重启后内存会话清空，前端检测到会话失效会直接跳登录页而不是无限重连——这是预期行为。
 
 ## 登录与账号
 
 ### 注册后无法登录
 
-开放注册提交后是 `pending`（待审核）状态，管理员在 [管理后台 · 注册审核](../guide/administration.md#注册审核) 通过前不能登录。登录接口对未激活 / 已拒绝账号返回 403 类提示。
+开放注册提交后是 `pending`（待审核）状态，管理员在 [管理后台 · 注册审核](../guide/administration#注册审核) 通过前不能登录。登录接口对未激活 / 已拒绝账号返回 403 类提示。
 
 ### 登录一直返回限速
 
@@ -45,7 +45,7 @@ WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` �
 
 ### 为什么每个房间只保留 500 条消息
 
-这是运行期常量 `MAX_MESSAGES = 500`，每个群 / 每对私聊独立裁剪，超出部分从库里删除，避免单表无限膨胀。历史更久的消息需要通过 [聊天记录搜索](../guide/usage.md#聊天记录搜索) 按关键字检索（只搜文本）。
+这是运行期常量 `MAX_MESSAGES = 500`，每个群 / 每对私聊独立裁剪，超出部分从库里删除，避免单表无限膨胀。历史更久的消息需要通过 [聊天记录搜索](../guide/usage#聊天记录搜索) 按关键字检索（只搜文本）。
 
 ### 上传的文件会一直保存吗
 
@@ -69,7 +69,7 @@ WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` �
 
 ### 反向代理挂在子路径下怎么配
 
-把 Nginx 的 `location /chat` 转发到后端，并把前端 `public/js/config.js` 的 `apiBase` 设为 `/chat`（详见 [配置说明 · 显示 / 请求地址分离](../getting-started/configuration.md#显示--请求地址分离)）。
+把 Nginx 的 `location /chat` 转发到后端，并把前端 `public/js/config.js` 的 `apiBase` 设为 `/chat`（详见 [配置说明 · 显示 / 请求地址分离](../getting-started/configuration#显示--请求地址分离)）。
 
 ### 前后端不同域（跨域）部署
 
@@ -79,7 +79,7 @@ WebSocket 必须能升级。如果走了反向代理，记得透传 `Upgrade` �
 
 ### 怎么监控访问
 
-所有 HTTP 请求与 WebSocket 连接都会以 JSON 行写入 `data/access.log`，可接 ELK / Loki 等做监控。审计类操作（登录、发消息、处罚等）还会进 [管理后台 · 操作日志](../guide/administration.md#操作日志)，按动作 / 操作人过滤。
+所有 HTTP 请求与 WebSocket 连接都会以 JSON 行写入 `data/access.log`，可接 ELK / Loki 等做监控。审计类操作（登录、发消息、处罚等）还会进 [管理后台 · 操作日志](../guide/administration#操作日志)，按动作 / 操作人过滤。
 
 ### 内存占用高吗
 

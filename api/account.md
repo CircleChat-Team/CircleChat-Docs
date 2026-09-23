@@ -1,6 +1,6 @@
 # 账号与资料
 
-当前登录用户相关的接口：个人信息、密码、通知、个性化设置与两步验证。除 `twofa/*` 外都需要已登录。鉴权总览见 [API 概览](overview.md)。
+当前登录用户相关的接口：个人信息、密码、通知、个性化设置与两步验证。除 `twofa/*` 外都需要已登录。鉴权总览见 [API 概览](overview)。
 
 ## GET /api/me
 
@@ -119,7 +119,7 @@
 - `away`：离开，在线但标记为离开。
 - `lang`：`zh` / `en` / `ja`。
 
-响应 `{ "ok": true }`。注意实时状态也能通过 WebSocket `status` 消息即时切换（见 [WebSocket 协议](websocket.md)），这里存的是落库默认值。
+响应 `{ "ok": true }`。注意实时状态也能通过 WebSocket `status` 消息即时切换（见 [WebSocket 协议](websocket)），这里存的是落库默认值。
 
 ---
 

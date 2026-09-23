@@ -1,6 +1,6 @@
 # 管理端 API
 
-所有接口以 `/api/admin/` 开头，要求**管理员权限**（非管理员返回 `403`）。管理面板的每个页签都对应这里的一组接口。鉴权总览见 [API 概览](overview.md)。
+所有接口以 `/api/admin/` 开头，要求**管理员权限**（非管理员返回 `403`）。管理面板的每个页签都对应这里的一组接口。鉴权总览见 [API 概览](overview)。
 
 ## 举报处理
 
@@ -74,7 +74,7 @@
 
 响应 `{ "ok": true }`。
 
-> 处罚信息会以 WebSocket `penalty` 消息实时推送给被处罚用户，前端据此禁用输入框，详见 [WebSocket 协议](websocket.md#penalty)。
+> 处罚信息会以 WebSocket `penalty` 消息实时推送给被处罚用户，前端据此禁用输入框，详见 [WebSocket 协议](websocket#penalty)。
 
 ## 公告
 
@@ -220,7 +220,7 @@
 }
 ```
 
-`detail` 是结构化 `{k: i18n键, v: 占位变量}` 的 JSON 字符串，前端按语言翻译；单条详情上限 300 字符，总容量 5000 条。所有审计动作取值见 [开发指南 · 审计动作](../development/contribute.md#审计动作常量)。
+`detail` 是结构化 `{k: i18n键, v: 占位变量}` 的 JSON 字符串，前端按语言翻译；单条详情上限 300 字符，总容量 5000 条。所有审计动作取值见 [开发指南 · 审计动作](../development/contribute#审计动作常量)。
 
 ## OAuth 配置
 
@@ -236,4 +236,4 @@
 { "clientId": "...", "clientSecret": "..." }
 ```
 
-普通用户侧流程见 [好友与用户 · OAuth](../api/friends.md)（实际挂在 `oauth` 路径：`/api/oauth/providers`、`/api/oauth/github/start`、`/api/oauth/github/callback`、`/api/oauth/me`、`/api/oauth/github/unbind`）。
+普通用户侧流程见 [好友与用户 · OAuth](../api/friends)（实际挂在 `oauth` 路径：`/api/oauth/providers`、`/api/oauth/github/start`、`/api/oauth/github/callback`、`/api/oauth/me`、`/api/oauth/github/unbind`）。

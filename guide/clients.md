@@ -523,7 +523,7 @@ macOS / Windows 走系统原生 WebView，无需额外依赖。
 | 桌面客户端 | Rust + wry WebView 外壳（CircleChat-Client） | 从 Releases 下载 | 不绑 Chromium；用 `APP_SECRET` 签名 + `/api/app-manifest` 做站点身份校验；暴露 `__CIRCLECHAT_CLIENT__` 与 `notify` 接口 |
 | 移动端 | 手机浏览器（响应式） | 无需安装 | 抽屉布局 + 长按菜单 |
 
-服务端侧的 `APP_SECRET` / `CIRCLECHAT_APP_ID` / `APP_VERSION` 配置见 [配置说明](../getting-started/configuration.md)；更多安全相关说明见 [安全模型与加固](../guide/security.md)。
+服务端侧的 `APP_SECRET` / `CIRCLECHAT_APP_ID` / `APP_VERSION` 配置见 [配置说明](../getting-started/configuration)；更多安全相关说明见 [安全模型与加固](../guide/security)。
 
 ## 六、常见问题
 
@@ -1008,5 +1008,5 @@ macOS / Windows 走系统原生 WebView，无需额外依赖。
 
 ## 八、相关文档
 
-- 服务端侧的 `APP_SECRET` / `CIRCLECHAT_APP_ID` / `APP_VERSION` 配置见 [配置说明](../getting-started/configuration.md)。
-- 更多安全相关说明见 [安全模型与加固](../guide/security.md)。
+- 服务端侧的 `APP_SECRET` / `CIRCLECHAT_APP_ID` / `APP_VERSION` 配置见 [配置说明](../getting-started/configuration)。
+- 更多安全相关说明见 [安全模型与加固](../guide/security)。

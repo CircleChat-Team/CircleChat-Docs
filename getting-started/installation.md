@@ -48,7 +48,7 @@ location /chat {
 }
 ```
 
-同时按[配置说明 · 显示 / 请求地址分离](configuration.md#显示--请求地址分离)把前端 `public/js/config.js` 的 `apiBase` 设为 `/chat`，前端页面也要走该子路径访问。
+同时按[配置说明 · 显示 / 请求地址分离](configuration#显示--请求地址分离)把前端 `public/js/config.js` 的 `apiBase` 设为 `/chat`，前端页面也要走该子路径访问。
 
 ### 让 Nginx 直接扛静态资源（可选）
 
@@ -183,4 +183,4 @@ sudo systemctl restart circlechat
 1. **构建与运行版本一致**：构建请用与服务运行时相同（或更高）的 Node 版本，`vite build` 需要 Node ≥ 20.19。用 22.5 跑服务、用 18 构建，前端产物可能在低版本 Node 上跑不起来。
 2. **依赖锁文件被改写**：旧版 npm（如 9.x）会在 `npm install` 时改写 `package-lock.json`（例如删掉 `libc` 字段），使部署机的 `git pull` 因为工作区不干净而中止。建议升级 npm，或让部署目录只做 `git fetch` + `git reset --hard`（部署目录不应存在本地改动，所有改动走 `main` 推送）。
 
-更多配置项（端口、上传保留、数据库路径、显示 / 请求地址分离）见[配置说明](configuration.md)。
+更多配置项（端口、上传保留、数据库路径、显示 / 请求地址分离）见[配置说明](configuration)。

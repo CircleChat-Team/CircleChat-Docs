@@ -1,6 +1,6 @@
 # CircleChat 贡献指南
 
-欢迎为 CircleChat 贡献。本仓库的行为准则遵循上游 GitHub 上的 `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` / `SECURITY.md`。本文不替代这些上游文件，而是聚焦在文档 / 开发流程相关的要点，帮助贡献者快速理解环境要求、常用命令、分支约定、代码入口、后端注意事项、前端注意事项、审计动作常量、提交与部署方式以及许可要求。
+欢迎为 CircleChat 贡献。本仓库的行为准则遵循上游 GitHub 上的 `CONTRIBUTING` / `CODE_OF_CONDUCT` / `SECURITY`。本文不替代这些上游文件，而是聚焦在文档 / 开发流程相关的要点，帮助贡献者快速理解环境要求、常用命令、分支约定、代码入口、后端注意事项、前端注意事项、审计动作常量、提交与部署方式以及许可要求。
 
 如果你准备提交代码、文档、翻译、修复或任何其他贡献，建议先通读本文，再按本文末尾的检查清单逐项确认。这样可以减少因为环境版本、分支选择、类型检查、构建、缓存、国际化、WebSocket 协议不一致、审计动作命名、部署目录不干净等问题造成的返工。
 
@@ -426,7 +426,7 @@ git checkout main && git merge dev && git push   # 发布
 - 改动后构建：`npm run build`（或开发模式 `npm run dev`）。
 - 测试时浏览器需**硬刷新**（`Ctrl+Shift+R`），以清理缓存的静态资源。
 - 新增 i18n 文案时，zh / en / ja 三种语言都要补齐（文案键以扁平 `'a.b.c'` 形式写，构建期 `nest()` 转成嵌套结构）。
-- 实时能力改完记得对照 [WebSocket 协议](../api/websocket.md)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
+- 实时能力改完记得对照 [WebSocket 协议](../api/websocket)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
 
 下面逐条展开。
 
@@ -470,7 +470,7 @@ npm run dev
 
 ### 4. 实时能力与 WebSocket 协议
 
-原文要求：实时能力改完记得对照 [WebSocket 协议](../api/websocket.md)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
+原文要求：实时能力改完记得对照 [WebSocket 协议](../api/websocket)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
 
 这意味着：
 
@@ -586,7 +586,7 @@ actionPrefix=penalty
 
 原文列出提交与部署要点：
 
-- 推送到 `main` 后，生产服务器可通过 `git pull` 更新并重新 `npm run build` + 重启进程 / 容器（详见[生产部署](../getting-started/installation.md)）。
+- 推送到 `main` 后，生产服务器可通过 `git pull` 更新并重新 `npm run build` + 重启进程 / 容器（详见[生产部署](../getting-started/installation)）。
 - 部署目录须保持干净（无未提交改动，如 `package-lock.json`），否则 `git pull` 会中止；建议部署目录只做 `git fetch` + `git reset --hard`。
 - 也可以用远端仓库的 `post-receive` 钩子把「拉取 → 构建 → 重启」自动化。
 
@@ -600,7 +600,7 @@ actionPrefix=penalty
 npm run build
 ```
 
-然后重启进程 / 容器。原文指出详见[生产部署](../getting-started/installation.md)。因此，部署流程至少包括：
+然后重启进程 / 容器。原文指出详见[生产部署](../getting-started/installation)。因此，部署流程至少包括：
 
 1. 推送到 `main`；
 2. 生产服务器 `git pull`；
@@ -641,15 +641,15 @@ git reset --hard
 
 - 本项目以 GNU GPL v3.0 开源。
 - 贡献即表示你同意以 GPL-3.0 条款许可你的贡献。
-- 完整第三方资源与许可见 CREDITS.md。
+- 完整第三方资源与许可见 CREDITS。
 
 因此，贡献者在提交贡献前应理解：
 
 - 项目许可证是 GNU GPL v3.0；
 - 你的贡献会以 GPL-3.0 条款许可；
-- 第三方资源与许可信息在 `CREDITS.md`。
+- 第三方资源与许可信息在 `CREDITS`。
 
-原文给出了 LICENSE 和 CREDITS.md 的 GitHub 链接。贡献者应遵循这些许可要求。
+原文给出了 LICENSE 和 CREDITS 的 GitHub 链接。贡献者应遵循这些许可要求。
 
 ## 十、贡献流程总览
 
@@ -680,7 +680,7 @@ git reset --hard
 9. 发布时切到 `main`，合并 `dev`，推送 `main`。
 10. 生产服务器 `git pull`，`npm run build`，重启进程 / 容器。
 11. 部署目录保持干净，建议 `git fetch` + `git reset --hard`，可用 `post-receive` 钩子自动化。
-12. 贡献以 GPL-3.0 许可，第三方资源见 CREDITS.md。
+12. 贡献以 GPL-3.0 许可，第三方资源见 CREDITS。
 
 ## 十一、提交前检查清单
 
@@ -713,7 +713,7 @@ git reset --hard
 - [ ] 部署目录是否干净？
 - [ ] 是否按需使用 `git fetch` + `git reset --hard`？
 - [ ] 是否理解贡献以 GPL-3.0 许可？
-- [ ] 是否查阅 CREDITS.md 了解第三方资源与许可？
+- [ ] 是否查阅 CREDITS 了解第三方资源与许可？
 
 ## 十二、常见问题（基于原文可回答的部分）
 
@@ -803,7 +803,7 @@ git reset --hard
 
 ### Q22：实时能力改完要注意什么？
 
-对照 [WebSocket 协议](../api/websocket.md)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
+对照 [WebSocket 协议](../api/websocket)，服务端与 `src/core/chat.ts` 的 `onmessage` 分发要一致。
 
 ### Q23：审计日志接口是什么？
 
@@ -831,7 +831,7 @@ git reset --hard
 
 ### Q29：许可证是什么？
 
-GNU GPL v3.0。贡献即表示同意以 GPL-3.0 条款许可你的贡献。完整第三方资源与许可见 CREDITS.md。
+GNU GPL v3.0。贡献即表示同意以 GPL-3.0 条款许可你的贡献。完整第三方资源与许可见 CREDITS。
 
 ## 十三、结语
 

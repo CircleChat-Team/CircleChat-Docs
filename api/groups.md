@@ -1,6 +1,6 @@
 # 群组
 
-群组相关的全部接口。群组以 `gid` 标识（16 位 hex 字符串）。鉴权总览见 [API 概览](overview.md)。
+群组相关的全部接口。群组以 `gid` 标识（16 位 hex 字符串）。鉴权总览见 [API 概览](overview)。
 
 ## GET /api/groups
 
@@ -189,4 +189,4 @@
 | 看群消息 | ✅ | ✅（须是成员，否则 `403`） |
 | 发群消息 | ✅ | ✅（须是成员） |
 
-> 私聊相关接口见 [好友与用户](friends.md)；实时收发走 [WebSocket 协议](websocket.md)。
+> 私聊相关接口见 [好友与用户](friends)；实时收发走 [WebSocket 协议](websocket)。
