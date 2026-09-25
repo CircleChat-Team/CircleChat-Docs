@@ -240,7 +240,7 @@
 邀请某人入群（群成员即可发起）。请求体：
 
 ```json
-{ "gid": "a1b2c3d4e5f6a7b8", "invitee": "bob", "note": "来聊聊" }
+{ "gid": "a1b2c3d4e5f6a7b8", "invitee": "bob" }
 ```
 
 三种结果：
@@ -258,8 +258,10 @@
 列出与我相关的邀请：
 
 ```json
-{ "ok": true, "invites": [{ "id": 1, "gid": "a1b2c3d4e5f6a7b8", "inviter": "alice", "invitee": "bob", "created": 1789900000000, "status": "pending", "note": "来聊聊" }] }
+{ "ok": true, "invites": [{ "id": 1, "gid": "a1b2c3d4e5f6a7b8", "inviter": "alice", "invitee": "bob", "created": 1789900000000, "status": "pending" }] }
 ```
+
+`status`：`pending`（待接受 / 待审批）、`accepted`、`rejected`。
 
 ## POST /api/groups/invite/approve
 
