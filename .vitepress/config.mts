@@ -23,6 +23,7 @@ export default defineConfig({
       { text: "首页", link: "/" },
       { text: '开始使用', link: '/getting-started/quickstart' },
       { text: 'API 参考', link: '/api/overview' },
+      { text: '小程序', link: '/mini/index' },
       { text: '开发指南', link: '/development/architecture' },
     ],
     sidebar: [
@@ -59,6 +60,21 @@ export default defineConfig({
           { text: '站内信箱', link: '/api/mailbox' },
           { text: '管理端 API', link: '/api/admin' },
           { text: 'WebSocket 协议', link: '/api/websocket' },
+        ],
+      },
+      {
+        text: '小程序',
+        items: [
+          { text: '小程序概览', link: '/mini/index' },
+          { text: '五分钟写第一个', link: '/mini/quickstart' },
+          { text: '索引与 manifest 规格', link: '/mini/manifest' },
+          { text: 'SDK 参考', link: '/mini/sdk' },
+          { text: '权限与安全模型', link: '/mini/permissions' },
+          { text: 'KV 存储', link: '/mini/kv' },
+          { text: '#指令与交互', link: '/mini/commands' },
+          { text: '内置样例讲解', link: '/mini/samples' },
+          { text: '部署者指南', link: '/mini/admin' },
+          { text: '常见问题', link: '/mini/faq' },
         ],
       },
       {
