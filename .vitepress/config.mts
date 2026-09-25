@@ -58,6 +58,7 @@ export default defineConfig({
           { text: '群组', link: '/api/groups' },
           { text: '消息与上传', link: '/api/messages' },
           { text: '站内信箱', link: '/api/mailbox' },
+          { text: 'API Key', link: '/api/apikeys' },
           { text: '管理端 API', link: '/api/admin' },
           { text: 'WebSocket 协议', link: '/api/websocket' },
         ],

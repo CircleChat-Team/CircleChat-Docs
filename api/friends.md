@@ -66,6 +66,22 @@
 
 响应 `{ "ok": true }`。
 
+## POST /api/friends/remark
+
+设置**好友备注**（仅自己可见，侧栏里替代对方账号名显示，鼠标悬停仍能看到真实账号）。请求体：
+
+```json
+{ "to": "bob", "remark": "老王" }
+```
+
+- `remark` 传空串表示清除备注；
+- 必须是好友才能设置，否则 `403`（`api.friend.notFound` / `api.friend.notFriend`）；
+- 备注是**单向**的：你给对方的备注对方看不到，也不会影响对方看到的你的名字。
+
+响应 `{ "ok": true }`。
+
+> 群的类似能力见 [群组 · 群备注](../api/groups#post-apigroupsremark)，那是给群起别名。
+
 ## 好友门禁
 
 - **私聊必须先互为好友**：通过 WebSocket 发私聊消息前，服务端校验 `friends.isFriend`，非好友请求被静默拒绝（不发也不报错，只是不送达）。

@@ -43,9 +43,13 @@
 | 档位 | 接口 | 未满足条件时 |
 | --- | --- | --- |
 | 公开 | `register` / `login` / `health` / `setup` / `twofa/verify` | 不需要登录 |
-| 已登录 | 其余 `/api/*`（除下面两档） | 无有效 Cookie → `401` |
+| 已登录 | 其余 `/api/*`（除下面两档） | 无有效 Cookie 或 API Key → `401` |
 | 管理 | `/api/admin/*` | 非管理员 → `403` |
 | 两步验证 | 开了 TOTP 的账号登录 | 只回挑战码，不建会话 |
+
+除会话 Cookie 外，也可以带 **API Key**（`Authorization: Bearer <key>` 或 `X-API-Key: <key>`）访问绝大多数接口：
+服务端先认 Cookie，没有再认 Key。API Key 必须声明 scope，并受独立的每分钟限速约束，
+`/api/keys*` 本身不接受 Key（防提权）。详见 [API Key](apikeys)。
 
 ### 登录限速
 
@@ -133,7 +137,7 @@ curl -b cookies.txt 'https://chat.example.com/api/admin/logs?page=2&pageSize=50&
 | `404` | 资源不存在 / 分片会话失效 | 用户不存在、群组不存在、`upload/chunk` 会话已过期需重新 `init` |
 | `409` | 冲突 | 用户名已占用、已是好友 / 已发过请求、群主不能退群 |
 | `413` | 请求体 / 上传文件超限 | 单文件 > 100MB、分片 > 上限、文本 > 4096 字符 |
-| `429` | 触发登录限速 | 同 IP 连续失败 5 次被锁 10 分钟 |
+| `429` | 触发限速 | 同 IP 连续登录失败 5 次被锁 10 分钟；API Key 超过每分钟限额 |
 
 `400` 与 `413` 的边界：参数结构非法（如非 multipart、缺字段）通常 `400`；体积超限（文件大小、请求体大小）通常 `413`。上传接口会在读 body 前先看 `content-length`，超限直接 `413`，避免传完才报错。
 
@@ -152,4 +156,6 @@ curl -b cookies.txt 'https://chat.example.com/api/admin/logs?page=2&pageSize=50&
 | [群组](groups) | `groups` 系列 |
 | [消息与上传](messages) | `messages` / `messages/search` / `upload` 系列 |
 | [站内信箱](mailbox) | `announcements` / `me/notifications` / `me/notifications/read` |
+| [API Key](apikeys) | `keys` / `keys/update` / `keys/delete` |
+| [小程序](../mini/sdk) | `mini` 系列（小程序在沙箱内调用） |
 | [管理端 API](admin) | `admin` 系列 |

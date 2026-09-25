@@ -187,23 +187,60 @@
 
 ### GET /api/admin/files
 
-获取已上传文件列表（与 `FILE_TTL_DAYS` 保留策略相关）。
+获取已上传文件列表（与 `FILE_TTL_DAYS` 保留策略相关）。支持 `q`（文件名 / 原始名搜索）、`limit`（默认 200，上限 1000）、`offset`。
+
+```json
+{
+  "ok": true,
+  "total": 12,
+  "files": [
+    { "name": "ab12cd.png", "origin": "截图.png", "size": 1024, "ts": 1789900000000, "kind": "image", "used": 2, "avatar": false }
+  ],
+  "totalSize": 12345,
+  "usedCount": 4,
+  "limit": 200,
+  "offset": 0
+}
+```
+
+| 字段 | 说明 |
+| --- | --- |
+| `name` / `origin` | 落盘随机名 / 上传时的原始文件名 |
+| `kind` | 按扩展名判定的归类（image / code / audio / video / document / archive …） |
+| `used` | 被多少条消息引用；`0` 表示无人引用 |
+| `avatar` | `true` = 用户头像或群头像 |
+
+::: tip 头像受保护
+`avatar: true` 的文件被视为「已引用」：不计入未引用文件、**不参与过期清理**，
+也**不能在文件管理里删除**（`400` / `api.admin.fileIsAvatar`）——换头像请到用户资料或群设置里操作。
+:::
 
 ### POST /api/admin/file/del
 
 删除指定文件。请求体：
 
 ```json
-{ "url": "/uploads/xxx.png" }
+{ "name": "ab12cd.png" }
 ```
+
+服务端用 `path.basename` 比对防路径穿越；删除后同步移除 sha256 去重记录，
+并把仍引用它的消息标记为已过期（消息记录保留，前端显示「图片 / 文件已过期」）。
+
+```json
+{ "ok": true, "expired": 2 }
+```
+
+错误：`400`（`api.admin.fileInvalid` 名字不合法，或该文件是头像 `api.admin.fileIsAvatar`）、`404`（`api.admin.fileNotFound`）。
 
 ### POST /api/admin/files/del-batch
 
-批量删除文件。请求体：
+批量删除。请求体：
 
 ```json
-{ "urls": ["/uploads/xxx.png", "/uploads/yyy.png"] }
+{ "names": ["ab12cd.png", "ef34gh.pdf"] }
 ```
+
+一次最多 200 个，逐个走与单删相同的流程：非法名 / 已不存在 / 头像计入 `failed`，不影响其余。
 
 ## 操作日志
 
